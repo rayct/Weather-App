@@ -54,7 +54,6 @@
 import { RouterLink } from "vue-router";
 import { ref } from "vue";
 import BaseModal from "./BaseModal.vue";
-
 const modalActive = ref(null);
 const toggleModal = () => {
     modalActive.value = !modalActive.value;
