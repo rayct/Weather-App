@@ -6,7 +6,7 @@
       <RouterLink :to="{ name: 'home' }">
         <div class="flex items-center gap-3">
           <i class="fa-solid fa-sun text-2xl"></i>
-          <p class="text-2xl">Local Weather App</p>
+          <p class="text-2xl">The Local Weather</p>
         </div>
       </RouterLink>
 
@@ -70,13 +70,13 @@ import BaseModal from "./BaseModal.vue";
 const savedCities = ref([]);
 const route = useRoute();
 const router = useRouter();
-
 const addCity = () => {
   if (localStorage.getItem("savedCities")) {
     savedCities.value = JSON.parse(
       localStorage.getItem("savedCities")
     );
   }
+
   const locationObj = {
     id: uid(),
     state: route.params.state,
@@ -87,18 +87,17 @@ const addCity = () => {
     },
   };
 
-
   savedCities.value.push(locationObj);
   localStorage.setItem(
     "savedCities",
     JSON.stringify(savedCities.value)
   );
 
-
   let query = Object.assign({}, route.query);
   delete query.preview;
   router.replace({ query });
 };
+
 const modalActive = ref(null);
 const toggleModal = () => {
   modalActive.value = !modalActive.value;
