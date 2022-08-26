@@ -24,7 +24,7 @@ const router = createRouter({
   ],
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   document.title = `${
     to.params.state
       ? `${to.params.city}, ${to.params.state}`
